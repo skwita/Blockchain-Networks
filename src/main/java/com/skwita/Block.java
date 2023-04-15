@@ -31,7 +31,7 @@ public class Block implements Serializable {
         String temp;
         String resultHash;
         while (true) {
-            temp = prevHash + hash + data + nonce;
+            temp = prevHash + data + nonce;
             resultHash = DigestUtils.sha256Hex(temp);
             if (resultHash.endsWith("0000")) {
                 this.hash = resultHash;
