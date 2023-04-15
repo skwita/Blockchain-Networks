@@ -1,0 +1,35 @@
+version: '3'
+services:
+  first:
+    image: blockchain
+    container_name: firstContainer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: host
+    volumes:
+      - .:/app
+      - ~/.m2:/root/.m2
+    command: "2100"
+  second:
+    image: blockchain
+    container_name: secondContainer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: host
+    command: "2200"
+    volumes:
+      - .:/app
+      - ~/.m2:/root/.m2
+  third:
+    image: blockchain
+    container_name: thirdContainer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: host
+    command: "2300"
+    volumes:
+      - .:/app
+      - ~/.m2:/root/.m2
