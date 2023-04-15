@@ -9,9 +9,7 @@ public class BlockChain extends ArrayList<Block> {
    
     // Create a blockchain out of list of blocks
     public BlockChain(List<Block> blocks) {
-        for (Block block : blocks) {
-            this.add(block);
-        }
+        this.addAll(blocks);
     }
 
     // Adding a block to this blockchain if it is valid
@@ -40,7 +38,7 @@ public class BlockChain extends ArrayList<Block> {
         
         boolean hashEndsWithZeros = block.getHash().endsWith("0000");
         boolean currentPrevHashEqualsLastBlockHash = lastBlock.getHash().equals(block.getPrevHash());
-        boolean blockHasValidIndex = lastBlock.getIndex() != block.getIndex() - 1;
+        boolean blockHasValidIndex = lastBlock.getIndex() == block.getIndex() - 1;
 
         return hashEndsWithZeros && 
                currentPrevHashEqualsLastBlockHash && 
