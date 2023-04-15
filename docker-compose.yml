@@ -14,6 +14,9 @@ services:
   second:
     image: blockchain
     container_name: secondContainer
+    build:
+      context: .
+      dockerfile: Dockerfile
     network_mode: host
     command: "2200"
     volumes:
@@ -22,6 +25,9 @@ services:
   third:
     image: blockchain
     container_name: thirdContainer
+    build:
+      context: .
+      dockerfile: Dockerfile
     network_mode: host
     command: "2300"
     volumes:

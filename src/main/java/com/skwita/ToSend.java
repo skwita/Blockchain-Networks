@@ -31,8 +31,8 @@ public class ToSend {
     @Override
     public String toString() {
         return "blocks:" + blocks + "\n"
-        + "senderPort:" + senderPort + "\n"
-        + "recieverPort:" + receiverPort + "\n"
+        + "senderPort:" + senderPort + " "
+        + "recieverPort:" + receiverPort + " "
         + "type:" + toSendType + "\n";
     }
 }

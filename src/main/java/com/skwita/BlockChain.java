@@ -2,6 +2,9 @@ package com.skwita;
 
 import java.util.*;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class BlockChain extends ArrayList<Block> {
    
     // Create a blockchain out of list of blocks

@@ -11,7 +11,7 @@ import lombok.ToString;
 @Getter
 @ToString
 public class Node {
-    private BlockChain blockChain;
+    private BlockChain blockChain = new BlockChain();
     private ServerSocket serverSocket;
     private int port;
     private Set<Integer> ports;
@@ -45,7 +45,7 @@ public class Node {
 
     // Share or receive blocks
     public void shareBlock(List<Block> blocks, ToSendType toSendType) {
-        for (Integer clientPort : clientPorts) {
+        for (Integer clientPort : ports) {
 
             try (Socket socket = new Socket("localhost", clientPort);
                  ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
