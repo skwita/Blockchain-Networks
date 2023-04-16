@@ -27,7 +27,7 @@ public class BlockChain extends ArrayList<Block> {
         Block firstBlock = new Block();
         firstBlock.setNonce(0);
         firstBlock.setPrevHash("0");
-        firstBlock.calculateHash();
+        firstBlock.setHash("1234560000");
         super.add(firstBlock);
         return firstBlock;
     }

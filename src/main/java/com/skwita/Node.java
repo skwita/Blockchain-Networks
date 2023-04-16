@@ -19,18 +19,14 @@ public class Node {
     private ObjectInputStream[] inStreams;
     private int[] clientPorts;
     private boolean shouldGenerateFirst;
-    private ExecutorService executorService = Executors.newFixedThreadPool(10);
+    private ScheduledThreadPoolExecutor executorService = new ScheduledThreadPoolExecutor(10);
+    //private ExecutorService executorService = Executors.newFixedThreadPool(10);
     private boolean listening = true;
 
     public Node(int port) {
-        try {
-            this.port = port;
-            this.serverSocket = new ServerSocket(port);
-            this.ports  = Set.of(2100, 2200, 2300);
-            this.blockChain.createGenesis();
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
+        this.port = port;
+        this.ports  = Set.of(3100, 3200, 3300);
+        this.blockChain.createGenesis();
     }
 
     // Create a new block, calculate its hash and share it
