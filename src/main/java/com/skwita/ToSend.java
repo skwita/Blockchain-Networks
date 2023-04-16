@@ -1,11 +1,12 @@
 package com.skwita;
 
+import java.io.Serializable;
 import java.util.List;
 
 import lombok.Getter;
 
 @Getter
-public class ToSend {
+public class ToSend implements Serializable{
     private List<Block> blocks;
     private int senderPort;
     private int receiverPort;
@@ -20,6 +21,11 @@ public class ToSend {
 
     public ToSend(int senderPort, List<Block> blocks, ToSendType toSendType) {
         this.blocks = blocks;
+        this.senderPort = senderPort;
+        this.toSendType = toSendType;
+    }
+
+    public ToSend(int senderPort, ToSendType toSendType) {
         this.senderPort = senderPort;
         this.toSendType = toSendType;
     }
