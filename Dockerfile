@@ -1,10 +1,7 @@
-FROM maven:3-amazoncorretto-19 as builder
-
-ADD ./pom.xml pom.xml
-ADD ./src src/
-
-RUN mvn -f pom.xml clean package
-
-FROM openjdk:19.0-jre-slim
-COPY --from=builder target/blockchain-1.0-SNAPSHOT.jar blockchain-1.0-SNAPSHOT.jar
-ENTRYPOINT ["java", "-jar", "blockchain-1.0-SNAPSHOT.jar"]
+FROM maven:3-amazoncorretto-11 as builder
+WORKDIR /app
+COPY . .
+RUN mvn verify package
+FROM amazoncorretto:11.0.18-al2023
+COPY --from=builder /app/target/blockchain-1.0-SNAPSHOT-jar-with-dependencies.jar blockchain.jar
+ENTRYPOINT ["java", "-jar", "blockchain.jar"]

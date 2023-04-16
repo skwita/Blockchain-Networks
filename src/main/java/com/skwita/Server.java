@@ -18,7 +18,7 @@ public class Server extends Thread {
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream())) {
 
-            objectOutputStream.writeObject(new ToSend(node.getPort()));
+            objectOutputStream.writeObject(new ToSend(node.getPort(), ToSendType.Ready));
 
             Object recievedObject;
             while ((recievedObject = objectInputStream.readObject()) != null) {
