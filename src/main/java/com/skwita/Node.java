@@ -20,7 +20,6 @@ public class Node {
     private int[] clientPorts;
     private boolean shouldGenerateFirst;
     private ScheduledThreadPoolExecutor executorService = new ScheduledThreadPoolExecutor(10);
-    //private ExecutorService executorService = Executors.newFixedThreadPool(10);
     private boolean listening = true;
 
     public Node(int port) {
@@ -35,7 +34,6 @@ public class Node {
         Block block = new Block();
         block.setPrevHash(lastHash);
         block.calculateHash();
-        this.blockChain.add(block);
         shareBlock(List.of(block), ToSendType.Create);
     }
 
