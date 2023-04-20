@@ -38,8 +38,7 @@ public class ToSend implements Serializable{
     public String toString() {
         return "blocks:" + blocks + "\n"
         + "senderPort:" + senderPort + " "
-        + "recieverPort:" + receiverPort + " "
-        + "type:" + toSendType + "\n";
+        + "recieverPort:" + receiverPort + "\n";
     }
 }
 
